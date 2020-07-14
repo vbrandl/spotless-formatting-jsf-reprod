@@ -1,0 +1,23 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+}
+
+// gradle plugins
+plugins {
+  id 'war'
+  id 'com.diffplug.spotless' version '5.0.0'
+}
+
+spotless {
+  format 'xml', {
+    // ratchetFrom 'origin/master'
+    target '**/*.xhtml'
+    eclipseWtp('html')
+    indentWithSpaces(2)
+    endWithNewline()
+    trimTrailingWhitespace()
+    encoding 'UTF-8'
+  }
+}
